@@ -11,7 +11,29 @@ $(function () {
     //브라우저의 주소창에 적용시킨다. --> 페이지 이동 : location.href
     // location.href = linkValue;(창 이동)
 
-    //새 창 열기 --> window.open()
+    //새 창 열기 --> window.open() ㅎㅎ
     window.open(linkValue);
+  });
+
+  // 2. 디자인 커스텀
+  const $selectWrap = $('.select-wrap');
+  const $selectList = $('.select-list');
+
+  // strong(family site)을 클릭하면 $selectList를 보이게
+  $selectWrap.find('strong').on('click', function () {
+    $selectList.slideToggle();
+  });
+
+  $selectList.children('li').on('click', function () {
+    // attr('속성명')
+    // const linkValue = $(this).attr('data-link'); //const 유효범위는 중괄호
+
+    // data('속성명')
+    const linkValue = $(this).data('link');
+    console.log(linkValue);
+
+    window.open(linkValue);
+
+    $selectList.slideUp();
   });
 });
