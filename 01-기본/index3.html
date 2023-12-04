@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>팝업창 기본3 - animate()</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    ol,
+    ul,
+    li {
+      list-style: none;
+    }
+    img {
+      vertical-align: top;
+    }
+    .wrap {
+      width: 60%;
+      margin: 50px auto;
+      background: #ff5;
+      font-size: 2rem;
+    }
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 400px;
+      border: 10px solid #000;
+      background: #fff;
+      padding: 60px;
+      /* display: none; */
+      opacity: 0;
+    }
+    .dim {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.8);
+      display: none;
+    }
+  </style>
+  <script src="../js/jquery-3.7.1.min.js"></script>
+  <script>
+    $(function () {
+      // 대상을 변수에 저장
+      const $popup = $('.popup');
+      const $btnClose = $('.btn-close');
+      const $dim = $('.dim');
+
+      $('.wrap a').on('click', (e) => {
+        e.preventDefault();
+
+        $dim.fadeIn();
+
+        // .animate({옵션}, 지속시간, 콜백-끝난 후의 동작)
+        $popup.animate(
+          {
+            top: '50%',
+            opacity: 1,
+          },
+          300,
+          () => {
+            alert('창이 나왔서요');
+          }
+        );
+      });
+
+      // btnClose를 클릭하면 팝업창이 닫히게
+      $($btnClose).on('click', (e) => {
+        $popup.animate(
+          {
+            top: '-100%',
+            opacity: 0,
+          },
+          600,
+          () => {
+            $dim.fadeOut();
+          }
+        );
+      });
+    });
+  </script>
+  <body>
+    <!-- css(js) 디자인 용도의 div -->
+    <div class="dim"></div>
+    <div class="popup">
+      <p>팝업 내용이 뿌려집니다.</p>
+      <button class="btn-close" type="button">닫기</button>
+    </div>
+    <div class="wrap">
+      <p>
+        <a href="#">Lorem ipsum, dolor sit</a> amet consectetur adipisicing elit. Maiores libero velit voluptates
+        consequatur! Sint iste debitis nesciunt porro. Nobis, dignissimos neque provident veniam assumenda fuga, laborum
+        magni cum laudantium eius architecto expedita voluptatem ea, ducimus repudiandae iste velit harum rem.
+        Veritatis, alias molestiae vero tenetur explicabo unde mollitia obcaecati sint voluptate ipsam assumenda
+        officiis perspiciatis, expedita ab maxime a dolore! Iusto, architecto! Soluta doloribus quibusdam facilis ad
+        quidem! Deserunt cupiditate maiores enim corrupti officia rem, iste quia quae similique nihil ad nobis ullam
+        veritatis dicta aspernatur sed sequi ab dolor. Modi corrupti eligendi at suscipit sint harum quo aspernatur
+        delectus exercitationem, nihil saepe laudantium assumenda aliquid ipsa doloremque quae distinctio quam nisi,
+        nulla similique illum iure! Totam maiores voluptatibus voluptatum modi beatae, ipsam, error ipsa laudantium
+        eaque explicabo, excepturi corrupti. Dolorem quae reprehenderit dicta exercitationem accusamus doloremque modi
+        ab! Corrupti unde, molestiae ipsam iste a esse, magnam sint et beatae in enim qui iure eius fugit ipsum quo.
+        Tempore nam harum quia voluptate nemo quibusdam explicabo iusto suscipit autem vitae dolores fuga mollitia animi
+        voluptates, aperiam enim magnam nisi corrupti laudantium id repellendus error libero recusandae. Aliquam vel eos
+        possimus enim, provident deserunt consequuntur nesciunt amet fugit eveniet optio magni ea in exercitationem
+        itaque ipsum libero voluptate dolores laborum quia architecto beatae. Obcaecati quas sunt recusandae explicabo
+        numquam, animi modi dolorum sit totam eum earum quod eveniet sapiente, tempora iste ab aperiam alias similique
+        facere? Aperiam sint et fugit consequatur accusantium amet quisquam quaerat reiciendis quis, assumenda fuga
+        eveniet voluptatibus quae molestias id. Asperiores quas cumque velit omnis sequi delectus numquam est temporibus
+        vitae, sit, illo explicabo molestias ullam nostrum ad provident doloribus nemo incidunt aspernatur, culpa
+        cupiditate nesciunt id ex possimus. Rem enim neque deleniti voluptatum quia repellat non sed ab, magnam beatae
+        tenetur, velit laudantium ut dicta, quibusdam tempora eveniet exercitationem. Non quo incidunt autem neque quam
+        consequuntur molestias cupiditate, accusantium quibusdam, nesciunt omnis aspernatur eos veniam quas pariatur
+        ipsa? Eius quaerat velit deleniti perferendis nisi! Aut dolorum in odio architecto fugiat blanditiis
+        exercitationem dolorem qui omnis voluptas maiores nostrum rerum cum, libero aperiam, nisi quam voluptate porro
+        dicta ab perspiciatis et? Vel excepturi labore dignissimos repellat eaque earum quae illo dolorem dolorum
+        dolores, optio aut eius sit magnam provident. Consectetur rem sapiente itaque ratione eos doloremque recusandae
+        maxime est architecto perferendis ipsa commodi aspernatur soluta animi totam sequi repellendus reprehenderit,
+        eveniet explicabo culpa rerum tenetur. Numquam, voluptate? Eligendi itaque laborum cupiditate repudiandae,
+        facere nihil suscipit aliquid tenetur blanditiis ex et accusamus provident corrupti. Fugit officiis animi enim
+        hic voluptatibus quasi repudiandae delectus earum quos ab. Impedit, autem quam commodi quo, aliquam minus neque
+        enim officiis quibusdam velit sapiente suscipit, incidunt nobis optio harum porro eos libero! Consectetur nam
+        saepe perferendis doloribus facere accusamus amet architecto repellat dolore voluptatem ad earum laboriosam
+        fugiat fuga maxime laborum exercitationem, id libero ipsam aspernatur at nulla excepturi? Atque, dolores
+        laudantium ipsam quis id cupiditate repellat possimus praesentium tempore animi saepe. Veritatis vel placeat
+        sunt minus, architecto natus molestiae labore doloremque? Incidunt.
+      </p>
+    </div>
+  </body>
+</html>
