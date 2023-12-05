@@ -137,8 +137,11 @@
 
         // 햄버거 버튼을 클릭하면 그 자신에게 active 클래스 부여
         $btnMenu.on('click', function () {
-          $(this).toggleClass('active');
-          $allMenu.toggleClass('active');
+          // $(this).toggleClass('active');
+          // $allMenu.toggleClass('active');
+
+          // add() -> 같이 합치기
+          $(this).add($allMenu).toggleClass('active');
         });
       });
     </script>
@@ -200,7 +203,7 @@
       </div>
     </main>
     <footer>
-      <div class="inner">&copy; moodang-teacher</div>
+      <div class="inner">&copy; moodang-teacher! 803</div>
     </footer>
   </body>
 </html>
